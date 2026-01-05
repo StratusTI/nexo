@@ -1,6 +1,6 @@
-import { requireAuth } from "@/lib/api-helpers";
 import { UserProps } from "@/src/domain/entities/user";
 import { NextResponse } from "next/server";
+import { requireAuth } from "./require-auth";
 
 export async function requireAdmin(): Promise<{ user: UserProps | null; error?: NextResponse }> {
   const { user, error } = await requireAuth();
