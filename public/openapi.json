@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/api",
+      "url": "https://elo.stratustelecom.com.br:44385/api",
       "description": "Desenvolvimento"
     }
   ],
