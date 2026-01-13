@@ -1,7 +1,7 @@
+// src/infrastructure/auth/jwt-service.ts
 import { AuthService } from "@/src/application/services/auth-service";
 import { UserEntity, UserProps } from "@/src/domain/entities/user";
 import * as jose from 'jose';
-import { JWTPayload } from "./jwt-payload";
 
 export class JWTService implements AuthService {
   private readonly secret: Uint8Array

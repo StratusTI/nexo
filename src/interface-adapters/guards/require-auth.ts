@@ -1,3 +1,4 @@
+// src/interface-adapters/guards/require-auth.ts
 import { UserProps } from "@/src/domain/entities/user";
 import { JWTService } from "@/src/infrastructure/auth/jwt-service";
 import { cookies } from "next/headers";

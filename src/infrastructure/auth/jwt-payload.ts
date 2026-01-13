@@ -1,3 +1,4 @@
+// src/infrastructure/auth/jwt-payload.ts
 import { UserProps } from "@/src/domain/entities/user";
 
 export interface JWTPayload {

@@ -1,3 +1,4 @@
+// src/infrastructure/http/middlewares/auth-middleware.ts
 import { NextRequest, NextResponse } from "next/server";
 import { JWTService } from "../../auth/jwt-service";
 

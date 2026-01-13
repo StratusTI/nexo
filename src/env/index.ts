@@ -2,7 +2,9 @@ import 'dotenv/config';
 import { z } from 'zod';
 
 const envScema = z.object({
-  JWT_SECRET: z.string().min(1),
+  JWT_SECRET: z.string().min(1).optional(),
+  DATABASE_STEEL_URL: z.url(),
+  DATABASE_EASYRETRO_URL: z.url(),
 });
 
 const _env = envScema.safeParse(process.env);

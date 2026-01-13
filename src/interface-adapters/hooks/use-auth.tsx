@@ -1,12 +1,14 @@
+// src/interface-adapters/hooks/use-auth.tsx
 'use client'
 
 import { UserProps } from "@/src/domain/entities/user"
-import { createContext, useContext, ReactNode } from "react"
+import { createContext, ReactNode, useContext } from "react"
 
 interface AuthContextProps {
-  user: UserProps | null;
-  isAdmin: boolean;
-  isSuperAdmin: boolean;
+  user: UserProps | null
+  isAdmin: boolean
+  isSuperAdmin: boolean
+  nomeCompleto: string
 }
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps)
@@ -22,8 +24,9 @@ export function AuthProvider({
     <AuthContext.Provider
       value={{
         user,
-        isAdmin: user?.admin === 1,
-        isSuperAdmin: user?.superadmin === 1
+        isAdmin: user?.admin === true,
+        isSuperAdmin: user?.superadmin === true,
+        nomeCompleto: user ? `${user.nome} ${user.sobrenome}`.trim() : ''
       }}
     >
       {children}

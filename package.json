@@ -7,9 +7,15 @@
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p 44385",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "prisma:generate": "prisma generate --schema=./prisma/steel/schema.prisma && prisma generate --schema=./prisma/elo/schema.prisma",
+    "prisma:studio:steel": "prisma studio --schema=./prisma/steel/schema.prisma",
+    "prisma:studio:elo": "cross-env SELECTED_SCHEMA=elo prisma studio",
+    "prisma:pull:steel": "cross-env SELECTED_SCHEMA=steel prisma db pull",
+    "prisma:pull:elo": "cross-env SELECTED_SCHEMA=elo prisma db pull"
   },
   "dependencies": {
+    "@prisma/client": "6.18.0",
     "@scalar/nextjs-api-reference": "^0.9.9",
     "jose": "^6.1.3",
     "next": "16.1.1",
@@ -24,6 +30,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
+    "prisma": "6.18.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
