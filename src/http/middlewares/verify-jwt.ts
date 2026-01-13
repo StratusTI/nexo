@@ -1,5 +1,5 @@
-import { User } from "@/src-new/@types/user";
-import { decodeToken, verifyToken } from "@/src-new/utils/jwt";
+import { User } from "@/src/@types/user";
+import { decodeToken, verifyToken } from "@/src/utils/jwt";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 

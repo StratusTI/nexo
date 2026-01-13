@@ -1,4 +1,4 @@
-import { makeGetUserProfileUseCase } from "@/src-new/use-cases/facotires/make-get-user-profile";
+import { makeGetUserProfileUseCase } from "@/src/use-cases/factories/make-get-user-profile";
 import { NextRequest, NextResponse } from "next/server";
 import { verifyJWT } from "../../middlewares/verify-jwt";
 

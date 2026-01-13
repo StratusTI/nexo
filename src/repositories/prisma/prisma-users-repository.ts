@@ -1,6 +1,6 @@
-import { User } from "@/src-new/@types/user";
-import { prismaSteel } from "@/src-new/lib/prisma";
-import { mapUserRole } from "@/src-new/utils/user";
+import { User } from "@/src/@types/user";
+import { prismaSteel } from "@/src/lib/prisma";
+import { mapUserRole } from "@/src/utils/user";
 import { UsersRepository } from "../users-repository";
 
 export class PrismaUsersRepository implements UsersRepository {

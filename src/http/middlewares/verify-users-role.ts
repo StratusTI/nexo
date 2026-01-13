@@ -1,4 +1,4 @@
-import { User } from '@/src-new/@types/user';
+import { User } from '@/src/@types/user';
 import { NextResponse } from 'next/server';
 import { verifyJWT } from './verify-jwt';
 

@@ -1,4 +1,4 @@
-import { User } from "@/src-new/@types/user";
+import { User } from "@/src/@types/user";
 import { UsersRepository } from "../users-repository";
 
 export class InMemoryUsersRepository implements UsersRepository {
