@@ -163,16 +163,7 @@ export type whatsapp_numero = $Result.DefaultSelection<Prisma.$whatsapp_numeroPa
  * Enums
  */
 export namespace $Enums {
-  export const Role: {
-  admin: 'admin',
-  member: 'member',
-  viewer: 'viewer'
-};
-
-export type Role = (typeof Role)[keyof typeof Role]
-
-
-export const arquivos_log_acao: {
+  export const arquivos_log_acao: {
   upload: 'upload',
   update: 'update',
   delete: 'delete'
@@ -215,10 +206,6 @@ export const paginas_tipo: {
 export type paginas_tipo = (typeof paginas_tipo)[keyof typeof paginas_tipo]
 
 }
-
-export type Role = $Enums.Role
-
-export const Role: typeof $Enums.Role
 
 export type arquivos_log_acao = $Enums.arquivos_log_acao
 
@@ -3403,7 +3390,6 @@ export namespace Prisma {
     session_token: string | null
     sigame: boolean | null
     superadmin: boolean | null
-    role: $Enums.Role | null
     iddevice: string | null
     last_seen: Date | null
     online: boolean | null
@@ -3436,7 +3422,6 @@ export namespace Prisma {
     session_token: string | null
     sigame: boolean | null
     superadmin: boolean | null
-    role: $Enums.Role | null
     iddevice: string | null
     last_seen: Date | null
     online: boolean | null
@@ -3469,7 +3454,6 @@ export namespace Prisma {
     session_token: number
     sigame: number
     superadmin: number
-    role: number
     iddevice: number
     last_seen: number
     online: number
@@ -3518,7 +3502,6 @@ export namespace Prisma {
     session_token?: true
     sigame?: true
     superadmin?: true
-    role?: true
     iddevice?: true
     last_seen?: true
     online?: true
@@ -3551,7 +3534,6 @@ export namespace Prisma {
     session_token?: true
     sigame?: true
     superadmin?: true
-    role?: true
     iddevice?: true
     last_seen?: true
     online?: true
@@ -3584,7 +3566,6 @@ export namespace Prisma {
     session_token?: true
     sigame?: true
     superadmin?: true
-    role?: true
     iddevice?: true
     last_seen?: true
     online?: true
@@ -3704,7 +3685,6 @@ export namespace Prisma {
     session_token: string | null
     sigame: boolean | null
     superadmin: boolean | null
-    role: $Enums.Role | null
     iddevice: string | null
     last_seen: Date | null
     online: boolean
@@ -3756,7 +3736,6 @@ export namespace Prisma {
     session_token?: boolean
     sigame?: boolean
     superadmin?: boolean
-    role?: boolean
     iddevice?: boolean
     last_seen?: boolean
     online?: boolean
@@ -3796,7 +3775,6 @@ export namespace Prisma {
     session_token?: boolean
     sigame?: boolean
     superadmin?: boolean
-    role?: boolean
     iddevice?: boolean
     last_seen?: boolean
     online?: boolean
@@ -3812,7 +3790,7 @@ export namespace Prisma {
     dispositivos?: boolean
   }
 
-  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "permissoes" | "sobrenome" | "foto" | "telefone" | "admin" | "idempresa" | "idconfiguracao" | "ramal" | "queue_penalty" | "session_token" | "sigame" | "superadmin" | "role" | "iddevice" | "last_seen" | "online" | "agente_dinamico" | "senha_api_md5" | "vpn" | "microsip_singlemode" | "microsip_aa" | "lgpd" | "lgpd_date" | "departamento" | "time" | "dispositivos", ExtArgs["result"]["usuario"]>
+  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "permissoes" | "sobrenome" | "foto" | "telefone" | "admin" | "idempresa" | "idconfiguracao" | "ramal" | "queue_penalty" | "session_token" | "sigame" | "superadmin" | "iddevice" | "last_seen" | "online" | "agente_dinamico" | "senha_api_md5" | "vpn" | "microsip_singlemode" | "microsip_aa" | "lgpd" | "lgpd_date" | "departamento" | "time" | "dispositivos", ExtArgs["result"]["usuario"]>
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     acessos_usuarios?: boolean | Usuario$acessos_usuariosArgs<ExtArgs>
     horarios_padrao?: boolean | Usuario$horarios_padraoArgs<ExtArgs>
@@ -3846,7 +3824,6 @@ export namespace Prisma {
       session_token: string | null
       sigame: boolean | null
       superadmin: boolean | null
-      role: $Enums.Role | null
       iddevice: string | null
       last_seen: Date | null
       online: boolean
@@ -4249,7 +4226,6 @@ export namespace Prisma {
     readonly session_token: FieldRef<"Usuario", 'String'>
     readonly sigame: FieldRef<"Usuario", 'Boolean'>
     readonly superadmin: FieldRef<"Usuario", 'Boolean'>
-    readonly role: FieldRef<"Usuario", 'Role'>
     readonly iddevice: FieldRef<"Usuario", 'String'>
     readonly last_seen: FieldRef<"Usuario", 'DateTime'>
     readonly online: FieldRef<"Usuario", 'Boolean'>
@@ -33148,7 +33124,6 @@ export namespace Prisma {
     session_token: 'session_token',
     sigame: 'sigame',
     superadmin: 'superadmin',
-    role: 'role',
     iddevice: 'iddevice',
     last_seen: 'last_seen',
     online: 'online',
@@ -34062,13 +34037,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Role'
-   */
-  export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -34140,7 +34108,6 @@ export namespace Prisma {
     session_token?: StringNullableFilter<"Usuario"> | string | null
     sigame?: BoolNullableFilter<"Usuario"> | boolean | null
     superadmin?: BoolNullableFilter<"Usuario"> | boolean | null
-    role?: EnumRoleNullableFilter<"Usuario"> | $Enums.Role | null
     iddevice?: StringNullableFilter<"Usuario"> | string | null
     last_seen?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     online?: BoolFilter<"Usuario"> | boolean
@@ -34177,7 +34144,6 @@ export namespace Prisma {
     session_token?: SortOrderInput | SortOrder
     sigame?: SortOrderInput | SortOrder
     superadmin?: SortOrderInput | SortOrder
-    role?: SortOrderInput | SortOrder
     iddevice?: SortOrderInput | SortOrder
     last_seen?: SortOrderInput | SortOrder
     online?: SortOrder
@@ -34218,7 +34184,6 @@ export namespace Prisma {
     session_token?: StringNullableFilter<"Usuario"> | string | null
     sigame?: BoolNullableFilter<"Usuario"> | boolean | null
     superadmin?: BoolNullableFilter<"Usuario"> | boolean | null
-    role?: EnumRoleNullableFilter<"Usuario"> | $Enums.Role | null
     iddevice?: StringNullableFilter<"Usuario"> | string | null
     last_seen?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     online?: BoolFilter<"Usuario"> | boolean
@@ -34255,7 +34220,6 @@ export namespace Prisma {
     session_token?: SortOrderInput | SortOrder
     sigame?: SortOrderInput | SortOrder
     superadmin?: SortOrderInput | SortOrder
-    role?: SortOrderInput | SortOrder
     iddevice?: SortOrderInput | SortOrder
     last_seen?: SortOrderInput | SortOrder
     online?: SortOrder
@@ -34296,7 +34260,6 @@ export namespace Prisma {
     session_token?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
     sigame?: BoolNullableWithAggregatesFilter<"Usuario"> | boolean | null
     superadmin?: BoolNullableWithAggregatesFilter<"Usuario"> | boolean | null
-    role?: EnumRoleNullableWithAggregatesFilter<"Usuario"> | $Enums.Role | null
     iddevice?: StringNullableWithAggregatesFilter<"Usuario"> | string | null
     last_seen?: DateTimeNullableWithAggregatesFilter<"Usuario"> | Date | string | null
     online?: BoolWithAggregatesFilter<"Usuario"> | boolean
@@ -36866,7 +36829,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -36903,7 +36865,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -36937,7 +36898,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -36974,7 +36934,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -37010,7 +36969,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -37041,7 +36999,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -37074,7 +37031,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -40010,13 +39966,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type EnumRoleNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | null
-    notIn?: $Enums.Role[] | null
-    not?: NestedEnumRoleNullableFilter<$PrismaModel> | $Enums.Role | null
-  }
-
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -40096,7 +40045,6 @@ export namespace Prisma {
     session_token?: SortOrder
     sigame?: SortOrder
     superadmin?: SortOrder
-    role?: SortOrder
     iddevice?: SortOrder
     last_seen?: SortOrder
     online?: SortOrder
@@ -40136,7 +40084,6 @@ export namespace Prisma {
     session_token?: SortOrder
     sigame?: SortOrder
     superadmin?: SortOrder
-    role?: SortOrder
     iddevice?: SortOrder
     last_seen?: SortOrder
     online?: SortOrder
@@ -40169,7 +40116,6 @@ export namespace Prisma {
     session_token?: SortOrder
     sigame?: SortOrder
     superadmin?: SortOrder
-    role?: SortOrder
     iddevice?: SortOrder
     last_seen?: SortOrder
     online?: SortOrder
@@ -40248,16 +40194,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type EnumRoleNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | null
-    notIn?: $Enums.Role[] | null
-    not?: NestedEnumRoleNullableWithAggregatesFilter<$PrismaModel> | $Enums.Role | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumRoleNullableFilter<$PrismaModel>
-    _max?: NestedEnumRoleNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -42380,10 +42316,6 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableEnumRoleFieldUpdateOperationsInput = {
-    set?: $Enums.Role | null
-  }
-
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
@@ -42728,13 +42660,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumRoleNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | null
-    notIn?: $Enums.Role[] | null
-    not?: NestedEnumRoleNullableFilter<$PrismaModel> | $Enums.Role | null
-  }
-
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -42829,16 +42754,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedEnumRoleNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Role[] | null
-    notIn?: $Enums.Role[] | null
-    not?: NestedEnumRoleNullableWithAggregatesFilter<$PrismaModel> | $Enums.Role | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumRoleNullableFilter<$PrismaModel>
-    _max?: NestedEnumRoleNullableFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -43322,7 +43237,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43357,7 +43271,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43422,7 +43335,6 @@ export namespace Prisma {
     session_token?: StringNullableFilter<"Usuario"> | string | null
     sigame?: BoolNullableFilter<"Usuario"> | boolean | null
     superadmin?: BoolNullableFilter<"Usuario"> | boolean | null
-    role?: EnumRoleNullableFilter<"Usuario"> | $Enums.Role | null
     iddevice?: StringNullableFilter<"Usuario"> | string | null
     last_seen?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     online?: BoolFilter<"Usuario"> | boolean
@@ -43453,7 +43365,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43489,7 +43400,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43538,7 +43448,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -43574,7 +43483,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -43719,7 +43627,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43755,7 +43662,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43804,7 +43710,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -43840,7 +43745,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -43873,7 +43777,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43909,7 +43812,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -43958,7 +43860,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -43994,7 +43895,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -44138,7 +44038,6 @@ export namespace Prisma {
     session_token?: string | null
     sigame?: boolean | null
     superadmin?: boolean | null
-    role?: $Enums.Role | null
     iddevice?: string | null
     last_seen?: Date | string | null
     online?: boolean
@@ -44169,7 +44068,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -44204,7 +44102,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean
@@ -44239,7 +44136,6 @@ export namespace Prisma {
     session_token?: NullableStringFieldUpdateOperationsInput | string | null
     sigame?: NullableBoolFieldUpdateOperationsInput | boolean | null
     superadmin?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    role?: NullableEnumRoleFieldUpdateOperationsInput | $Enums.Role | null
     iddevice?: NullableStringFieldUpdateOperationsInput | string | null
     last_seen?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     online?: BoolFieldUpdateOperationsInput | boolean

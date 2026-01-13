@@ -29,7 +29,6 @@ export async function GET() {
         telefone: user.telefone,
         admin: user.admin,
         superadmin: user.superadmin,
-        role: user.role,
         idempresa: user.idempresa,
         departamento: user.departamento,
         time: user.time,

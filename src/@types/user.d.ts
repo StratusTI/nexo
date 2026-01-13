@@ -7,7 +7,6 @@ export interface User {
   telefone: string
   admin: boolean
   superadmin: boolean
-  role: 'admin' | 'member' | 'viewer'
   idempresa: number | null
   departamento: string | null
   time: string | null

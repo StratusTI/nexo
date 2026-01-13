@@ -1,6 +1,5 @@
 import * as jose from 'jose';
 import { User } from "../@types/user";
-import { mapUserRole } from "./user";
 
 const getSecret = (): Uint8Array => {
   const secret = process.env.JWT_SECRET
@@ -27,7 +26,6 @@ export async function verifyToken(token: string): Promise<User | null> {
       telefone: user.telefone || '',
       admin,
       superadmin,
-      role: (user.role as User['role']) ?? mapUserRole(admin, superadmin),
       idempresa: user.idempresa || null,
       departamento: user.departamento || null,
       time: user.time || '',
@@ -56,7 +54,6 @@ export async function decodeToken(token: string): Promise<User | null> {
       telefone: user.telefone || '',
       admin,
       superadmin,
-      role: (user.role as User['role']) ?? mapUserRole(admin, superadmin),
       idempresa: user.idempresa || null,
       departamento: user.departamento || null,
       time: user.time || '',

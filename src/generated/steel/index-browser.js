@@ -137,7 +137,6 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   session_token: 'session_token',
   sigame: 'sigame',
   superadmin: 'superadmin',
-  role: 'role',
   iddevice: 'iddevice',
   last_seen: 'last_seen',
   online: 'online',
@@ -855,12 +854,6 @@ exports.Prisma.whatsapp_numeroOrderByRelevanceFieldEnum = {
   status: 'status',
   status_erro: 'status_erro'
 };
-exports.Role = exports.$Enums.Role = {
-  admin: 'admin',
-  member: 'member',
-  viewer: 'viewer'
-};
-
 exports.arquivos_log_acao = exports.$Enums.arquivos_log_acao = {
   upload: 'upload',
   update: 'update',

@@ -26,7 +26,6 @@ model Usuario {
   session_token       String?            @default("") @db.VarChar(255)
   sigame              Boolean?           @default(false)
   superadmin          Boolean?           @default(false)
-  role                Role?              @default(member)
   iddevice            String?            @db.VarChar(11)
   last_seen           DateTime?          @db.DateTime(0)
   online              Boolean            @default(false)
@@ -505,12 +504,6 @@ model whatsapp_numero {
   status            String?   @db.VarChar(20)
   status_erro       String?   @db.Text
   status_data       DateTime? @db.DateTime(0)
-}
-
-enum Role {
-  admin
-  member
-  viewer
 }
 
 enum arquivos_log_acao {
