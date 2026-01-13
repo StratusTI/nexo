@@ -1,3 +1,5 @@
+// infrastructure/database/prisma/prisma-client.ts
+
 import { PrismaClient as PrismaClientElo } from "@/src/generated/elo";
 import { PrismaClient as PrismaClientSteel } from "@/src/generated/steel";
 
