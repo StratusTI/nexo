@@ -1,8 +1,10 @@
+import { ResourceNotFoundError } from "@/src/use-cases/errors/resource-not-found-error";
 import { makeGetUserProfileUseCase } from "@/src/use-cases/factories/make-get-user-profile";
-import { NextRequest, NextResponse } from "next/server";
+import { standardError, successResponse } from "@/src/utils/http-response";
+import { NextRequest } from "next/server";
 import { verifyJWT } from "../../middlewares/verify-jwt";
 
-export async function GET(request: NextRequest) {
+export async function GET(req: NextRequest) {
   const { user, error } = await verifyJWT()
 
   if (error) return error
@@ -14,13 +16,13 @@ export async function GET(request: NextRequest) {
       userId: user!.id
     })
 
-    return NextResponse.json({
-      user: profile
-    })
+    return successResponse({ user: profile }, 200)
   } catch (err) {
-    return NextResponse.json(
-      { message: "Internal server error" },
-      { status: 500 }
-    )
- }
+    if (err instanceof ResourceNotFoundError) {
+      return standardError('RESOURCE_NOT_FOUND', 'User profile not found')
+    }
+
+    console.error('[GET /profile] Unexpected error:', err)
+    return standardError('INTERNAL_SERVER_ERROR', 'An unexpected error occurred')
+  }
 }

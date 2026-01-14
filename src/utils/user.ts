@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ErrorResponse } from "../@types/http-response";
 import { User } from "../@types/user";
 import { verifyUserRole } from "../http/middlewares/verify-users-role";
 
@@ -14,15 +15,10 @@ export function isUserSuperAdmin(user: User): boolean {
   return user.superadmin;
 }
 
-export function mapUserRole(admin: boolean | number, superadmin: boolean | number): string {
-  if (admin || superadmin) return 'admin';
-  return 'member';
-}
-
-export async function requireAdmin(): Promise<{ user: User | null; error ?: NextResponse }> {
+export async function requireAdmin(): Promise<{ user: User | null; error ?: NextResponse<ErrorResponse> }> {
   return verifyUserRole('admin')
 }
 
-export async function requireSuperAdmin(): Promise<{ user: User | null; error ?: NextResponse }> {
+export async function requireSuperAdmin(): Promise<{ user: User | null; error ?: NextResponse<ErrorResponse> }> {
   return verifyUserRole('superadmin')
 }

@@ -1,43 +1,46 @@
-import { User } from '@/src/@types/user';
-import { NextResponse } from 'next/server';
-import { verifyJWT } from './verify-jwt';
+import type { ErrorResponse } from "@/src/@types/http-response";
+import { User } from "@/src/@types/user";
+import { standardError } from "@/src/utils/http-response";
+import { NextResponse } from "next/server";
+import { verifyJWT } from "./verify-jwt";
 
+type UserRole = 'admin' | 'superadmin'
+
+/**
+ * Verifica se o usuário autenticado possui a role necessária
+ *
+ * @param requiredRole - 'admin' (admin ou superadmin) | 'superadmin' (apenas superadmin)
+ * @returns { user, error? }
+ */
 export async function verifyUserRole(
-  requiredRole: 'admin' | 'superadmin'
-): Promise<{ user: User | null; error?: NextResponse }> {
+  requiredRole: UserRole,
+): Promise<{
+  user: User | null
+  error?: NextResponse<ErrorResponse>
+}> {
   const { user, error } = await verifyJWT()
 
-  if (error) return { user: null, error }
+  if (user?.superadmin) return { user }
 
-  if (!user) {
+  if (requiredRole === 'superadmin') {
     return {
       user: null,
-      error: NextResponse.json(
-        { message: 'Unauthorized' },
-        { status: 401 }
+      error: standardError(
+        'INSUFFICIENT_PERMISSIONS',
+        'Superadmin access required'
       )
     }
   }
 
-  if (requiredRole === 'superadmin' && !user.superadmin) {
+  if (requiredRole === 'admin') {
     return {
       user: null,
-      error: NextResponse.json(
-        { message: 'Forbidden - Super Admin access required' },
-        { status: 403 }
+      error: standardError(
+        'INSUFFICIENT_PERMISSIONS',
+        'Admin access required'
       )
     }
   }
 
-  if (requiredRole === 'admin' && !user.admin) {
-    return {
-      user: null,
-      error: NextResponse.json(
-        { message: 'Forbidden - Admin access required' },
-        { status: 403 }
-      )
-    }
-  }
-
-  return { user }
+  return { user}
 }

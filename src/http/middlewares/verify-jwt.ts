@@ -1,4 +1,5 @@
 import { User } from "@/src/@types/user";
+import { standardError } from "@/src/utils/http-response";
 import { decodeToken, verifyToken } from "@/src/utils/jwt";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -20,10 +21,7 @@ export async function verifyJWT(): Promise<{ user: User | null; error?: NextResp
   if (!token) {
     return {
       user: null,
-      error: NextResponse.json(
-        { message: 'Unauthorized' },
-        { status: 401 }
-      )
+      error: standardError('UNAUTHORIZED', 'Authentication token not found'),
     }
   }
 
@@ -32,10 +30,7 @@ export async function verifyJWT(): Promise<{ user: User | null; error?: NextResp
   if (!user) {
     return {
       user: null,
-      error: NextResponse.json(
-        { message: 'Invalid token' },
-        { status: 401 }
-      )
+      error: standardError('INVALID_TOKEN', 'Invalid or expired token'),
     }
   }
 

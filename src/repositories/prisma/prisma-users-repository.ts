@@ -1,6 +1,5 @@
 import { User } from "@/src/@types/user";
 import { prismaSteel } from "@/src/lib/prisma";
-import { mapUserRole } from "@/src/utils/user";
 import { UsersRepository } from "../users-repository";
 
 export class PrismaUsersRepository implements UsersRepository {
@@ -11,9 +10,6 @@ export class PrismaUsersRepository implements UsersRepository {
 
     if (!user || !user.email) return null
 
-    const admin = user.admin ?? false;
-    const superadmin = user.superadmin ?? false;
-
     return {
       id: user.id,
       nome: user.nome ?? '',
@@ -21,9 +17,8 @@ export class PrismaUsersRepository implements UsersRepository {
       email: user.email,
       foto: user.foto ?? '',
       telefone: user.telefone ?? '',
-      admin,
-      superadmin,
-      role: (user.role as User['role']) ?? mapUserRole(admin, superadmin),
+      admin: user.admin ?? false,
+      superadmin: user.superadmin ?? false,
       idempresa: user.idempresa ?? null,
       departamento: user.departamento ?? null,
       time: user.time ?? '',
@@ -38,9 +33,6 @@ export class PrismaUsersRepository implements UsersRepository {
 
     if (!user || !user.email) return null
 
-    const admin = user.admin ?? false;
-    const superadmin = user.superadmin ?? false;
-
     return {
       id: user.id,
       nome: user.nome ?? '',
@@ -48,9 +40,8 @@ export class PrismaUsersRepository implements UsersRepository {
       email: user.email,
       foto: user.foto ?? '',
       telefone: user.telefone ?? '',
-      admin,
-      superadmin,
-      role: (user.role as User['role']) ?? mapUserRole(admin, superadmin),
+      admin: user.admin ?? false,
+      superadmin: user.superadmin ?? false,
       idempresa: user.idempresa ?? null,
       departamento: user.departamento ?? null,
       time: user.time ?? '',
