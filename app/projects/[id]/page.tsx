@@ -153,6 +153,7 @@ export default function ProjectDetailsPage({
       }
 
       const response = await fetch(`/api/projects/${params.id}`, {
+        credentials: 'include',
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
