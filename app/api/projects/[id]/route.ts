@@ -29,9 +29,10 @@ const updateProjectSchema = z.object({
 // GET /api/projects/[id] - Detalhes do projeto
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const projectId = Number.parseInt(params.id, 10);
+  const { id } = await params;
+  const projectId = Number.parseInt(id, 10);
 
   if (Number.isNaN(projectId)) {
     return standardError('BAD_REQUEST', 'Invalid project ID');
@@ -69,9 +70,10 @@ export async function GET(
 // PATCH /api/projects/[id] - Atualizar projeto
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const projectId = Number.parseInt(params.id, 10);
+  const { id } = await params;
+  const projectId = Number.parseInt(id, 10);
 
   if (Number.isNaN(projectId)) {
     return standardError('BAD_REQUEST', 'Invalid project ID');
@@ -143,9 +145,10 @@ export async function PATCH(
 // DELETE /api/projects/[id] - Arquivar projeto
 export async function DELETE(
   _req: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const projectId = Number.parseInt(params.id, 10);
+  const { id } = await params;
+  const projectId = Number.parseInt(id, 10);
 
   if (Number.isNaN(projectId)) {
     return standardError('BAD_REQUEST', 'Invalid project ID');

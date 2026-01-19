@@ -9,7 +9,7 @@ export interface ProjectRepository {
   create(data: CreateProjectRequest & { ownerId: number; idempresa: number }): Promise<Project>;
   findById(id: number): Promise<Project | null>;
   findByNameAndCompany(nome: string, idempresa: number): Promise<Project | null>;
-  findMany(filters: ProjectFilters, userId: number, isSuperadmin: boolean, userCompany: number): Promise<{
+  findMany(filters: ProjectFilters, userId: number, isSuperadmin: boolean): Promise<{
     projects: Project[];
     total: number;
   }>;
