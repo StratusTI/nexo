@@ -37,6 +37,7 @@ export async function seedTestData() {
       id: 900001,
       nome: 'Projeto Teste',
       ownerId: 1,
+      idempresa: 1
     },
   })
 

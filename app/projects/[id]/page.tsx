@@ -59,7 +59,7 @@ const PRIORITY_COLORS: Record<ProjetoPriority, string> = {
 export default function ProjectDetailsPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const router = useRouter();
   const [project, setProject] = useState<Project | null>(null);
@@ -67,6 +67,7 @@ export default function ProjectDetailsPage({
   const [editing, setEditing] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [projectId, setProjectId] = useState<string>('');
 
   // Form state
   const [formData, setFormData] = useState({
@@ -83,13 +84,16 @@ export default function ProjectDetailsPage({
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    fetchProject();
-  }, [params.id]);
+    params.then((resolvedParams) => {
+      setProjectId(resolvedParams.id);
+      fetchProject(resolvedParams.id);
+    });
+  }, []);
 
-  const fetchProject = async () => {
+  const fetchProject = async (id: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/projects/${params.id}`);
+      const response = await fetch(`/api/projects/${id}`);
 
       if (!response.ok) {
         if (response.status === 404) {
@@ -152,7 +156,7 @@ export default function ProjectDetailsPage({
         payload.dataFim = new Date(payload.dataFim).toISOString();
       }
 
-      const response = await fetch(`/api/projects/${params.id}`, {
+      const response = await fetch(`/api/projects/${projectId}`, {
         credentials: 'include',
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -178,7 +182,7 @@ export default function ProjectDetailsPage({
 
       // Success
       setEditing(false);
-      fetchProject();
+      fetchProject(projectId);
     } catch (error) {
       console.error('Error updating project:', error);
       alert('Erro ao atualizar projeto');
@@ -194,7 +198,7 @@ export default function ProjectDetailsPage({
 
     try {
       setDeleting(true);
-      const response = await fetch(`/api/projects/${params.id}`, {
+      const response = await fetch(`/api/projects/${projectId}`, {
         method: 'DELETE',
       });
 
