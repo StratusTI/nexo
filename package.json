@@ -27,7 +27,10 @@
     "prisma:deploy:steel": "cross-env SELECTED_SCHEMA=steel DATABASE_STEEL_URL=mysql://root:M7a64tl0@10.25.100.10:3306/steel_test prisma db push",
     "prisma:deploy:elo": "cross-env SELECTED_SCHEMA=elo DATABASE_ELO_URL=mysql://root:M7a64tl0@10.25.100.10:3306/easyretro_test prisma db push",
     "prisma:validate": "prisma validate && prisma format",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_863518cbfccaa11"
   },
   "dependencies": {
     "@anthropic-ai/claude-code": "^2.1.9",
@@ -43,23 +46,34 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@chromatic-com/storybook": "^5.0.0",
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/addon-onboarding": "^10.1.11",
+    "@storybook/addon-vitest": "^10.1.11",
+    "@storybook/nextjs-vite": "^10.1.11",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/supertest": "^6.0.3",
     "@vitejs/plugin-react": "^5.1.2",
-    "@vitest/coverage-v8": "4.0.17",
+    "@vitest/browser-playwright": "^4.0.17",
+    "@vitest/coverage-v8": "^4.0.17",
     "@vitest/ui": "4.0.17",
+    "chromatic": "^13.3.5",
     "cross-env": "^10.1.0",
     "dotenv": "^17.2.3",
     "husky": "^9.1.7",
+    "playwright": "^1.57.0",
     "prisma": "6.18.0",
+    "storybook": "^10.1.11",
     "supertest": "^7.2.2",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vite": "^7.3.1",
     "vitest": "^4.0.17"
   }
 }
