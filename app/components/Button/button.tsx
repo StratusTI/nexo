@@ -9,7 +9,7 @@ export default function Button({
   label,
   onClick,
   variant = 'primary',
-  disabled = false
+  disabled = false,
 }: ButtonProps) {
   const baseStyles = 'px-4 py-2 rounded font-medium transition-colors';
 
