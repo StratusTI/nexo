@@ -3,7 +3,7 @@ import { prismaElo } from "../lib/prisma";
 
 export async function setupDatabase() {
   beforeAll(async () => {
-    const databaseUrl = process.env.DATABASE_ELO_URL
+    const databaseUrl = "mysql://root:M7a64tl0@10.25.100.10:3306/easyretro_test?protocol=mysql"
 
     if (!databaseUrl?.includes('test')) {
       throw new Error(
