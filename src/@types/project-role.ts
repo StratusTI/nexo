@@ -130,6 +130,7 @@ export interface ProjectMember {
   usuarioId: number
   role: ProjectRole
   adicionadoEm: Date
+  source: string
 }
 
 export interface PermissionCheckResult {
