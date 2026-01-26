@@ -8,7 +8,14 @@ WORKDIR /app
 
 # Copiar arquivos de dependências
 COPY package.json pnpm-lock.yaml* ./
-RUN corepack enable pnpm && pnpm install --frozen-lockfile
+RUN --mount=type=secret,id=npmtoken \
+    corepack enable pnpm && \
+    if [ -f /run/secrets/npmtoken ]; then \
+      echo "@hugeicons-pro:registry=https://registry.npmjs.org/" > .npmrc && \
+      echo "//registry.npmjs.org/:_authToken=$(cat /run/secrets/npmtoken)" >> .npmrc; \
+    fi && \
+    pnpm install --frozen-lockfile && \
+    rm -f .npmrc
 
 # Build da aplicação
 FROM base AS builder
