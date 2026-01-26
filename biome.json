@@ -36,7 +36,8 @@
 				"noAutofocus": "off",
 				"noPositiveTabindex": "off",
 				"useIframeTitle": "off",
-				"noStaticElementInteractions": "off"
+				"noStaticElementInteractions": "off",
+				"useKeyWithClickEvents": "off"
 			},
 			"complexity": {
 				"noForEach": "off",

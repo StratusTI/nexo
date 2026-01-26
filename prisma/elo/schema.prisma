@@ -12,7 +12,7 @@ datasource db {
 model Projeto {
   id               Int                @id @default(autoincrement())
   nome             String             @db.VarChar(255)
-  projectId        String?            @db.VarChar(10)
+  projectId        String?            @db.VarChar(10) @unique
   descricao        String?            @db.Text
   icone            String?            @db.VarChar(50)
   backgroundUrl    String?            @db.VarChar(255)

@@ -15,15 +15,15 @@ const preview: Preview = {
       theme: themes.dark,
     },
 
-    backgrouns: {
+    backgrounds: {
       default: 'dark',
       values: [
         {
           name: 'dark',
-          value: '#0f172a',
+          value: '#000000',
         },
         {
-          name: 'Light',
+          name: 'light',
           value: '#ffffff',
         },
       ]

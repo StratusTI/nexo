@@ -50311,11 +50311,11 @@ export namespace Prisma {
 
   export type ProjetoWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    projectId?: string
     AND?: ProjetoWhereInput | ProjetoWhereInput[]
     OR?: ProjetoWhereInput[]
     NOT?: ProjetoWhereInput | ProjetoWhereInput[]
     nome?: StringFilter<"Projeto"> | string
-    projectId?: StringNullableFilter<"Projeto"> | string | null
     descricao?: StringNullableFilter<"Projeto"> | string | null
     icone?: StringNullableFilter<"Projeto"> | string | null
     backgroundUrl?: StringNullableFilter<"Projeto"> | string | null
@@ -50341,7 +50341,7 @@ export namespace Prisma {
     tags?: TagListRelationFilter
     tarefas?: TarefaListRelationFilter
     userStories?: UserStoryListRelationFilter
-  }, "id">
+  }, "id" | "projectId">
 
   export type ProjetoOrderByWithAggregationInput = {
     id?: SortOrder

@@ -9,7 +9,7 @@ import {
   Settings02Icon,
   UserIcon,
   VideoIcon,
-} from '@hugeicons-pro/core-stroke-rounded';
+} from '@hugeicons-pro/core-bulk-rounded';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { Icon } from '../HugeIcons';
 
